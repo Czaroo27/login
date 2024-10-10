@@ -2,9 +2,15 @@ function logowanie() {
   let username = document.getElementById("loginn").value;
   let password = document.getElementById("passwordd").value;
 
-  if (username === "admin" && password === "DRAGON") {
+  // Zaszyfrowanie hasła za pomocą SHA-256
+  let encryptedPassword = CryptoJS.SHA256(password).toString();
+
+  // Przykład: sprawdzenie zaszyfrowanego hasła (dla demo, w rzeczywistości przechowuj i porównuj zaszyfrowane wersje)
+  let storedHashedPassword = CryptoJS.SHA256("DRAGON").toString();
+
+  if (username === "admin" && encryptedPassword === storedHashedPassword) {
     alert("Login successfully");
-    window.location = "technischools.com"; // Przekierowanie do innej strony.
+    window.location = "https://technischools.com"; // Przekierowanie do innej strony.
     return false; // Zatrzymanie wysłania formularza
   } else {
     alert("Incorrect username or password");
@@ -15,7 +21,7 @@ function logowanie() {
 function admin() {
   let admin = document.getElementById("loginn").value;
   if (admin === "admin") {
-    alert("użytkownik o nazwie admin istnieje");
+    alert("Użytkownik o nazwie admin istnieje");
     return false;
   }
 }
