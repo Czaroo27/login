@@ -1,27 +1,32 @@
 function logowanie() {
   let username = document.getElementById("loginn").value;
   let password = document.getElementById("passwordd").value;
+  let errorMessage = document.getElementById("error-message"); // Element na komunikat o błędzie
 
-  // Zaszyfrowanie hasła za pomocą SHA-256
-  let encryptedPassword = CryptoJS.SHA256(password).toString();
+  // Wyczyszczenie poprzedniego komunikatu o błędzie
+  errorMessage.textContent = "";
 
-  // Przykład: sprawdzenie zaszyfrowanego hasła (dla demo, w rzeczywistości przechowuj i porównuj zaszyfrowane wersje)
-  let storedHashedPassword = CryptoJS.SHA256("DRAGON").toString();
-
-  if (username === "admin" && encryptedPassword === storedHashedPassword) {
+  // Sprawdzanie hasła i loginu (przykład bez szyfrowania)
+  if (username === "admin" && password === "DRAGON") {
     alert("Login successfully");
     window.location = "https://technischools.com"; // Przekierowanie do innej strony.
     return false; // Zatrzymanie wysłania formularza
   } else {
-    alert("Incorrect username or password");
+    // Wyświetlenie komunikatu o błędnym haśle lub loginie
+    errorMessage.textContent = "Incorrect username or password";
     return false; // Zatrzymanie wysłania formularza
   }
 }
 
 function admin() {
   let admin = document.getElementById("loginn").value;
+  let errorMessage = document.getElementById("error-message");
+
+  // Wyczyszczenie poprzedniego komunikatu o błędzie
+  errorMessage.textContent = "";
+
   if (admin === "admin") {
-    alert("Użytkownik o nazwie admin istnieje");
+    errorMessage.textContent = "Użytkownik o nazwie admin istnieje";
     return false;
   }
 }

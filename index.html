@@ -7,13 +7,12 @@
       src="https://kit.fontawesome.com/1ab94d0eba.js"
       crossorigin="anonymous"
     ></script>
-    <title>Login Form</title>
+    <title>Logowanie Czarodzieje Kodu</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="container">
       <h2>Login</h2>
-      <!-- Zmieniono, dodano onsubmit="return logowanie()" -->
       <form action="" onsubmit="return logowanie()">
         <div class="input-field">
           <input
@@ -35,6 +34,8 @@
         </div>
 
         <input type="submit" value="Continue" />
+        <!-- Miejsce na wyświetlenie komunikatu o błędzie -->
+        <p id="error-message" style="color: red"></p>
       </form>
 
       <div class="footer">
